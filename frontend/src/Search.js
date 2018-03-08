@@ -33,10 +33,7 @@ class Search extends React.Component {
     render() {
         return (
             <div className="container">
-                <br/>
-                <div className="col-md-10">
-                    <p>Welcome to InstaFights! Input two instagram usernames and the one with the most likes wins!</p>
-                </div>
+
                 <div className="row">
 
 
