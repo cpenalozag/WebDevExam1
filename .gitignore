@@ -1,0 +1,4 @@
+node_modules
+backend/npm-debug.log
+frontend/yarn-error.log
+.idea/
