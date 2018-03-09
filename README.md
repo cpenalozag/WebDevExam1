@@ -1,6 +1,10 @@
 # WebDev Exam 1
 
-First exam for webdev class
+First exam for my WebDev class. Its a web app built with Node, Express and React that allows users to compete based on their instagram likes.
+
+## Creativity Component
+
+Challenge mode where users can enter their id and compare themselves with the best account that has participated in the competition.
 
 # Running the app
 
@@ -29,7 +33,9 @@ Then open your browser on http://localhost:3000
 ## Built With
 
 * [Node JS](https://nodejs.org/es) 
-* [React JS](https://facebook.github.io/react/) 
+* [React JS](https://facebook.github.io/react/)
+* Express JS
+* Heroku 
 * CSS
 * HTML
 

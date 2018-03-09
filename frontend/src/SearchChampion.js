@@ -2,14 +2,13 @@ import React from 'react';
 import './App.css';
 
 
-class Search extends React.Component {
+class SearchChampion extends React.Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
-            user1: '',
-            user2: ''
+            user1: ''
         }
     }
 
@@ -19,14 +18,8 @@ class Search extends React.Component {
         })
     }
 
-    change2(val) {
-        this.setState({
-            user2: val
-        })
-    }
-
     isEnabled() {
-        return this.state.user1.length > 0 && this.state.user2.length > 0;
+        return this.state.user1.length > 0;
     }
 
     render() {
@@ -34,24 +27,20 @@ class Search extends React.Component {
             <div className="container">
 
                 <div className="row">
-                    <div className="col-md-2 search">
+                    <div className="col-md-3 search">
 
                     </div>
                     <div className="col-md-3 search">
-                        <input className="" required="required" className="form-control" type="text" placeholder="First username"
+                        <input className="" required="required" className="form-control" type="text" placeholder="Type in your username"
                                onChange={(event) => this.change1(event.target.value)}/>
                     </div>
                     <div className="col-md-2 search">
                         <button disabled={!this.isEnabled()} className="btn btn-primary button" onClick={
                             () => {
-                                this.props.executeQuery(this.state.user1, this.state.user2);
+                                this.props.challenge(this.state.user1);
                             }
-                        }>Fight!
+                        }>Challenge!
                         </button>
-                    </div>
-                    <div className="col-md-3 search">
-                        <input required className="form-control" type="text" placeholder="Second username"
-                               onChange={(event) => this.change2(event.target.value)}/>
                     </div>
                 </div>
             </div>
@@ -60,4 +49,4 @@ class Search extends React.Component {
     }
 }
 
-export default Search;
+export default SearchChampion;

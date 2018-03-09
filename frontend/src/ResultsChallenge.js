@@ -2,7 +2,7 @@ import React from 'react'
 import './App.css';
 
 
-class Results extends React.Component {
+class ResultsChallenge extends React.Component {
 
 
     render() {
@@ -44,14 +44,14 @@ class Results extends React.Component {
                                         <div className="row">
                                             <div className="col-md-4">
                                                 <img className="img"
-                                                     src={this.props.user2.profile_pic_url_hd}
+                                                     src={this.props.user2.picture}
                                                      alt={this.props.user2.username + " picture"}/>
                                             </div>
                                             <div className="col-md-8">
                                                 <p><strong>Username:</strong> {this.props.user2.username}</p>
-                                                <p><strong>Followers:</strong> {this.props.user2.followed_by.count}</p>
-                                                <p><strong>Total likes:</strong> {this.props.user2.totalLikes}</p>
-                                                <p><strong>Number of pictures:</strong> {this.props.user2.media.nodes.length}</p>
+                                                <p><strong>Followers:</strong> {this.props.user2.followers}</p>
+                                                <p><strong>Total likes:</strong> {this.props.user2.likes}</p>
+                                                <p><strong>Number of pictures:</strong> {this.props.user2.pictures}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -70,4 +70,4 @@ class Results extends React.Component {
     }
 }
 
-export default Results;
+export default ResultsChallenge;
