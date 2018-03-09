@@ -1,26 +1,16 @@
 {
   "name": "webdevexam1",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
     "heroku-postbuild": "cd frontend && yarn --production=false && yarn run build"
   },
-  "dependencies": {
-    "body-parser": "~1.18.2",
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.6.9",
-    "express": "~4.15.5",
-    "mongoose": "^5.0.9",
-    "morgan": "~1.9.0"
-  },
-  "description": "First exam for my web development class",
-  "main": "app.js",
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cpenalozag/WebDevExam1.git"
   },
+  "description": "First exam for my web development class",
   "keywords": [
     "exam",
     "react",
@@ -33,5 +23,13 @@
   "bugs": {
     "url": "https://github.com/cpenalozag/WebDevExam1/issues"
   },
-  "homepage": "https://github.com/cpenalozag/WebDevExam1#readme"
+  "homepage": "https://github.com/cpenalozag/WebDevExam1#readme",
+  "dependencies": {
+    "body-parser": "~1.18.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.15.5",
+    "mongoose": "^5.0.9",
+    "morgan": "~1.9.0"
+  }
 }

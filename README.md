@@ -4,7 +4,7 @@ First exam for my WebDev class. Its a web app built with Node, Express and React
 
 ## Creativity Component
 
-Challenge mode where users can enter their id and compare themselves with the best account that has participated in the competition.
+Challenge mode where users can enter their username and compare themselves with the best account that has participated in the competition.
 
 # Running the app
 
