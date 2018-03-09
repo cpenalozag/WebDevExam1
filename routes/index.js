@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var mongoose = require("mongoose");
+var url = process.env.MONGOLAB_URI;
 
 var FighterModel = require("../models/FighterModel.js");
 var FightModel = require("../models/FightModel.js");
