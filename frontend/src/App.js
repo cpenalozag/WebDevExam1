@@ -207,7 +207,7 @@ class App extends Component {
                     <br/>
                     <div>
                         <p className="text-center">
-                            Welcome to InstaFights! Input two instagram usernames and the one with the most likes wins!
+                            This is the challenge mode, try to beat the current champion!
                         </p>
                     </div>
                     <SearchChampion challenge={this.challenge.bind(this)}></SearchChampion>
