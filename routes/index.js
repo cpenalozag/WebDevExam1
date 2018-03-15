@@ -2,7 +2,6 @@ var express = require("express");
 var router = express.Router();
 var mongoose = require("mongoose");
 var url = process.env.MONGOLAB_URI;
-url = 'mongodb://admin:asd123456@ds153198.mlab.com:53198/bikelab';
 
 var FighterModel = require("../models/FighterModel.js");
 var FightModel = require("../models/FightModel.js");
