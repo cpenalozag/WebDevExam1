@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 var mongoose = require("mongoose");
 var url = process.env.MONGOLAB_URI;
+url = 'mongodb://admin:asd123456@ds153198.mlab.com:53198/bikelab';
 
 var FighterModel = require("../models/FighterModel.js");
 var FightModel = require("../models/FightModel.js");
@@ -62,7 +63,6 @@ router.post("/history", function (req, res) {
         usernameLoser: req.body.usernameLoser,
         date: Date.now()
     };
-    console.log("aaa", item);
     let data = new FightModel(item);
     data.save();
     res.send(data);
@@ -70,34 +70,13 @@ router.post("/history", function (req, res) {
 
 /* GET fighters from db */
 router.get("/history", function (req, res) {
-    FightModel.find().sort('date').then(function (doc) {
+    FightModel.find().limit(15).sort('-date').then(function (doc) {
         console.log(doc);
         res.send(doc);
     });
 });
 
 
-router.get("/fight/:user1/:user2", function (req, res) {
-    console.log(req.params);
-    fetch("https://www.instagram.com/" + req.params + "/?__a=1")
-        .then((response) => response.json())
-        .then((responseJson) => {
-            var json1 = responseJson;
-            fetch("https://www.instagram.com/" + user2 + "/?__a=1")
-                .then((response) => response.json())
-                .then((responseJson) => {
-                    var json2 = responseJson;
-                    const resp = getWinner(json1, json2);
-
-                })
-                .catch((error) => {
-                    console.log("mal1");
-                });
-        })
-        .catch((error) => {
-            console.log("mal2");
-        })
-});
 
 
 // The "catchall" handler: for any request that doesn't

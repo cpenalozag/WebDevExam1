@@ -27,9 +27,9 @@ class ResultsChallenge extends React.Component {
                                             </div>
                                             <div className="col-md-8">
                                                 <p><strong>Username:</strong> {this.props.user1.username}</p>
-                                                <p><strong>Followers:</strong> {this.props.user1.followed_by.count}</p>
+                                                <p><strong>Followers:</strong> {this.props.user1.edge_followed_by.count}</p>
                                                 <p><strong>Total likes:</strong> {this.props.user1.totalLikes}</p>
-                                                <p><strong>Number of pictures:</strong> {this.props.user1.media.nodes.length}</p>
+                                                <p><strong>Number of pictures:</strong> {this.props.user1.edge_owner_to_timeline_media.count}</p>
                                             </div>
                                         </div>
                                     </div>

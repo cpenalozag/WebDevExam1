@@ -36,11 +36,11 @@ class App extends Component {
 
     getWinner(us1, us2) {
         let u1 = 0, u2 = 0;
-        us1.user.media.nodes.forEach((pic) => {
-            u1 += pic.likes.count;
+        us1.user.edge_owner_to_timeline_media.edges.forEach((pic) => {
+            u1 += pic.node.edge_liked_by.count;
         });
-        us2.user.media.nodes.forEach((pic) => {
-            u2 += pic.likes.count;
+        us2.user.edge_owner_to_timeline_media.edges.forEach((pic) => {
+            u2 += pic.node.edge_liked_by.count;
         });
         us1.user.totalLikes = u1;
         us2.user.totalLikes = u2;
@@ -57,12 +57,13 @@ class App extends Component {
         this.addFighter(us1.user);
         this.addFighter(us2.user);
         this.setState({user1: us1.user, user2: us2.user});
+        this.updateHistory();
     }
 
     getWinnerChallenge(us1, us2) {
         let u1 = 0;
-        us1.user.media.nodes.forEach((pic) => {
-            u1 += pic.likes.count;
+        us1.user.edge_owner_to_timeline_media.edges.forEach((pic) => {
+            u1 += pic.node.edge_liked_by.count;
         });
         let u2 = us2.likes;
         us1.user.totalLikes = u1;
@@ -78,14 +79,15 @@ class App extends Component {
         }
         this.addFighter(us1.user);
         this.setState({user1: us1.user, user2: us2});
+        this.updateHistory();
     }
 
     addFighter(user) {
         const body = JSON.stringify({
             username: user.username,
-            followers: user.followed_by.count,
+            followers: user.edge_followed_by.count,
             likes: user.totalLikes,
-            pictures: user.media.nodes.length,
+            pictures: user.edge_owner_to_timeline_media.count,
             picture: user.profile_pic_url_hd
         });
         console.log(body);
@@ -112,6 +114,10 @@ class App extends Component {
             });
     }
 
+    componentDidMount() {
+        this.updateHistory();
+    }
+
     executeQuery(user1, user2) {
         let me = this;
         fetch("https://www.instagram.com/" + user1 + "/?__a=1")
@@ -122,7 +128,8 @@ class App extends Component {
                     .then((response) => response.json())
                     .then((responseJson) => {
                         var json2 = responseJson;
-                        me.getWinner(json1, json2);
+                        console.log(json2.graphql.user);
+                        me.getWinner(json1.graphql, json2.graphql);
                         this.updateHistory();
                     })
                     .catch((error) => {
@@ -144,7 +151,7 @@ class App extends Component {
                     .then((response) => response.json())
                     .then((responseJson) => {
                         var json2 = responseJson;
-                        me.getWinnerChallenge(json1, json2);
+                        me.getWinnerChallenge(json1.graphql, json2);
                         this.updateHistory();
                     })
                     .catch((error) => {
